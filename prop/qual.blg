@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: qual.aux
+The style file: h-physrev.bst.bst
+Database file #1: qualNotes.bib
+Database file #2: refs.bib
+You've used 2 entries,
+            1946 wiz_defined-function locations,
+            615 strings with 5481 characters,
+and the built_in function-call counts, 502 in all, are:
+= -- 33
+> -- 29
+< -- 0
++ -- 10
+- -- 7
+* -- 45
+:= -- 75
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 22
+empty$ -- 44
+format.name$ -- 9
+if$ -- 112
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 22
+stack$ -- 0
+substring$ -- 29
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 20

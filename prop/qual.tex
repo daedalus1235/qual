@@ -1,0 +1,49 @@
+\documentclass[reprint,aps,prb]{revtex4-2} %chktex 8
+\usepackage{mathy}
+
+\begin{document}
+
+\title{Rate of quantum tunnelling measured in a cold ion-molecule reaction}
+\author{Charles Yang\vspace{-2.6em}}
+\noaffiliation{}
+\date{\today}
+\maketitle
+
+%\begin{abstract}
+%   Majorana quasiparticles are a enticing candidate for quantum computation. Not only is information nonlocally stored, protecting qubits from decoherence via most forms of noise, computations are performed through braiding, which is sensitive only to the topology of the operations and not the precise unitaries used. We discuss a simple system that can be used to describe Majorana quasiparticles in nanowires, how they can be used for topological quantum computation, and experimental progress towards fabricating and characterizing such Majorana modes for use in topologically protected quantum computation.
+%\end{abstract}
+
+Recently, Ref.~\onlinecite{wild_tunnelling_2023} reported a measurement of the rate constant, \( k_1 \), for the reaction 
+\begin{equation}
+    \ce{H2 + D- <=> H2D- \overset{k_1}{\ce{->}} HD + H-} \label{eq:rxn}
+\end{equation}
+
+Reactions between hydrogenic species are of interest for multiple reasons. First, as the simplest atoms, hydrogenic molecules are reasonably tractable through computational and theoretical methods. By gaining insight into these simple hydrogenic reactions, we can gain insights into more general reactions between more complicated species. Second, as the most abundant element in the universe, hydrogenic reactions play a large role in astrophysical properties, such as in the evolution of the interstellar medium, for example in the production of the cyanide anion\cite{yuen_quantum-tunneling_2018}. The hydride anion \ce{H-} cannot be directly observed easily, since it only has a single bound state, but could be inferred indirectly from observations of the intermediate complex \ce{H3-}.
+
+In particular, under cryogenic conditions, the energy of the species is far lower than the activation energy, and thus the reaction proceeds chiefly through tunnelling. In particular, the reaction was found experimentally to have an activation barrier of about \SI{330}{meV}, much higher than the thermal energy on order of \SI{1.5}{meV}. Various methods to compute the rate constant are compared in Ref.~\cite{yuen_quantum-tunneling_2018}, and comprise of analyzing the three-body scattering of different spin and vibrotational channels.
+
+A multipole trap is used to store deuteride anions. The multipole trap has 22 electrodes, with alternating electrodes wired together, and an RF frequency providing a time-varying potential between the two sets of 11 electrodes. These provide on average an axial containment force on the charged charged anions, while the high multipole moment creates a large region inside the trap where the reaction can proceed unaffected.
+
+The trap is immersed in \ce{H2} that is cooled through thermalization with the housing which is kept at \SI{10}{K}. Collisions with this buffer gas are used to cool the deuteride. However, due to RF heating from the trap, the deuteride temperature will be higher; the authors estimate the reaction temperature to be about \SI{15\pm5}{K}. Once the deuteride has been cooled, additional \ce{H2} is added to the chamber and the system is allowed to react for a fixed amount of time.
+
+For a bimolecular reaction, the rate of change in the deuteride concentration is given \( \d{[\ce{D-}]}/\d{t}=k_1[\ce{H2}][\ce{D-}] \). Throughout the reaction, the quantity \( k_1[\ce{H2}]\equiv k_{\text{rxn}} \) is held constant, and we can rewrite the reaction rate law \( k_{\text{rxn}}[\ce{D-}] \). Additional loss terms are considered for ions escaping the trap, yielding the coupled rate laws
+\begin{subequations}
+    \begin{align}
+        \der{[\ce{D-}]}{t}&=-k_{\text{rxn}}[\ce{D-}]-k_{l,\ce{D-}}[\ce{D-}]\\
+        \der{[\ce{H-}]}{t}&=+k_{\text{rxn}}[\ce{D-}]-k_{l,\ce{H-}}[\ce{H-}]
+    \end{align}
+\end{subequations}
+which yields the \ce{H-} concentration as a function of time
+\begin{widetext}
+    \begin{equation}
+        \frac{[\ce{H-}](t)}{[\ce{D-}](0)}=\frac{k_{\text{rxn}}}{k_{l,\ce{H-}}-k_{l,\ce{D-}}-k_{\text{rxn}}}\left( e^{-(k_{\text{rxn}}+k_{l,\ce{D-}})t}-e^{-k_{l,\ce{H-}}t} \right) + \frac{[\ce{H-}](0)}{[\ce{D-}](0)}e^{-k_{l,\ce{H}}t}\label{eq:fit}
+    \end{equation}
+\end{widetext}
+The hydride and deuteride species are separated and measured using time-of-flight (ToF) mass spectroscopy. A voltage is applied, accelerating the charged particles. Having half the charge-to-mass ratio, the deuteride is spectroscopically separated from the hydride, reaching the microchannel plate detector at a later time. The rate constant \( k_1=\SI{5.2\pm1.6e-20}{cm^3.s^{-1}} \) is determined by fitting the detection to a second order expansion of eq.~\ref{eq:fit}. This result is in remarkable agreement with the theoretical prediction produced by Ref.~\onlinecite{yuen_quantum-tunneling_2018}. Furthermore, a non-linear dependence of the rate law is observed at high reactant densities, likely owing to the power-law tail on the velocity distribution due to RF heating, as modelled by a Tsallis entropy function.
+
+
+\bibliographystyle{h-physrev.bst}
+%\bibliographystyle{hieeetr.bst}
+\bibliography{refs.bib}
+
+\end{document}
