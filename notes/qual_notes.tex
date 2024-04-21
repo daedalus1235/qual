@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{hw}
+
+\title{Rate of quantum tunnelling measured in a cold ion-molecule reaction}
+\author{Charles Yang}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Astrophysical motivation}
+The hydride anion, \ce{H-}, is suspected to exist in the interstellar medium (ISM) and have played an important role in stellar formation. In particular, it likely is the source of molecular hydrogen, through the pathway\cite{peebles_origin_1968}
+\begin{subequations}
+    \begin{align}
+        \ce{H + e-}&\ce{-> H- + \gamma}\\
+        \ce{H- + H}&\ce{-> H2 + e-}
+    \end{align}
+\end{subequations}
+Its presence can also help to explain the observation of the cyanide anion \ce{CN-} in the ISM.\@ Rate calculations for radiative electron attachment are too slow to explain the concentration observed in the ISM\cite{douguet_theory_2013}\todo{Check this is true}
+However, the pathway proposed in\todo{when I have vpn access} can help to explain the observation of cyanide:
+\begin{equation}
+    \ce{H- + HCN -> H2 + CN-}
+\end{equation}
+since hydrogen cyanide is produced in stellar ejecta\cite{tielens_molecular_2013}.
+
+In general, it is very difficult to observe anionic species in the ISM, as UV radiation fields can very easily remove the extra electron. Case in point, the hydride anion has only a single bound state, and thus has no spectral lines which can be used as a convincing marker. Rather, the species \ce{H3-} could be used as a tracer\cite{ayouz_formation_2011} due to its IR vibrotational spectrum. While this species has not been observed yet, it is still interesting to ask the question of what is its formation rate?
+
+\section{Chemistry}
+The reaction that allows this is 
+\begin{equation}
+    \ce{H2 + H- <=> H3-} \label{eq:h3}
+\end{equation}
+\todo{Figure out why this isn't studied}, probably from\cite{wang_observations_2003}, that the low potential well means that the molecule can easily be broken apart.
+
+While \ce{H3-} has a binding energy of \SI{13}{meV}, which means it can in principle be isolated at \( \lesssim\SI{150}{K} \) it is easier instead to consider the analogue
+\begin{equation}
+    \ce{H2 + D- ->} \left[\ce{H2D-} \right]^\ddagger \ce{-> HD + H- } \label{eq:h2d}
+\end{equation}
+since the heavier mass of deuterium decreases the vibrational zero point energy of the products on the RHS, driving the reaction forward through a release of energy. However, electrically, \ce{H-} and \ce{D-} are almost identical, and so we expect the attack on the LHS to be very similar to Eq.~\ref{eq:h3}. Furthermore, it is much easier to measure the rate of this reaction, since the end products don't back-react to recreate the starting material, and all anionic species can very easily be separated by their charge-to-mass ratio by either time of flight or cyclotron radius. Combined, these two features make the determination of the rate constant significantly easier.
+
+In particular \todo{something about photo deionization and cold}. In particular, the environment of the ISM is very sparsely populated and cold, so \todo{idk lol}. In such conditions, given the experimentally determined reaction barrier of about \SI{330}{meV}\cite{zimmer_crossed-beam_1995}, the reaction can only proceed incredibly slowly via tunnelling. Estimates for an upper bound on the reaction rate by~\cite{endres_upper_2017} indicated the need for both high concentrations and long reaction times in able to obtain the necessary reaction rates.
+
+\section{Benchmarking Quantum Theory}
+Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it can be used as a valuable test of quantum theories and ab initio calculations. 
+\section{Multipole Trap}
+
+\section{}
+\bibliographystyle{h-physrev.bst}
+%\bibliographystyle{hieeetr.bst}
+\bibliography{qual.bib}
+\end{document}
