@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{hw}
 
 \title{Rate of quantum tunnelling measured in a cold ion-molecule reaction}
@@ -8,13 +8,14 @@
 \begin{document}
 \maketitle
 \section{Astrophysical motivation}
-The hydride anion, \ce{H-}, is suspected to exist in the interstellar medium (ISM) and have played an important role in stellar formation. In particular, it likely is the source of molecular hydrogen, through the pathway\cite{peebles_origin_1968}
+The hydride anion, \ce{H-}, is suspected to exist in the interstellar medium (ISM) and have played an important role in stellar formation. In particular, it likely is the original source of molecular hydrogen, before dust grains allowed surface chemistry, through the pathway\cite{peebles_origin_1968}
 \begin{subequations}
     \begin{align}
         \ce{H + e-}&\ce{-> H- + \gamma}\\
         \ce{H- + H}&\ce{-> H2 + e-}
     \end{align}
 \end{subequations}
+This is because three-body collisions are heavily suppressed by low densities while vibrational/rotational transitions are dipole forbidden due to no transition/permanent dipole moment respectively\cite{krumholz_notes_2016}.
 Its presence can also help to explain the observation of the cyanide anion \ce{CN-} in the ISM.\@ Rate calculations for radiative electron attachment are too slow to explain the concentration observed in the ISM\cite{douguet_theory_2013}\todo{Check this is true}
 However, the pathway proposed in\todo{when I have vpn access} can help to explain the observation of cyanide:
 \begin{equation}
@@ -22,7 +23,7 @@ However, the pathway proposed in\todo{when I have vpn access} can help to explai
 \end{equation}
 since hydrogen cyanide is produced in stellar ejecta\cite{tielens_molecular_2013}.
 
-In general, it is very difficult to observe anionic species in the ISM, as UV radiation fields can very easily remove the extra electron. Case in point, the hydride anion has only a single bound state, and thus has no spectral lines which can be used as a convincing marker. Rather, the species \ce{H3-} could be used as a tracer\cite{ayouz_formation_2011} due to its IR vibrotational spectrum. While this species has not been observed yet, it is still interesting to ask the question of what is its formation rate?
+In general, it is very difficult to observe anionic species in the ISM, as UV radiation fields can very easily remove the extra electron. To this point, the hydride anion has only a single bound state at \SI{0.77}{eV}, and thus has no spectral lines which can be used as a convincing marker. Rather, the species \ce{H3-} could be used as a tracer\cite{ayouz_formation_2011} due to its IR vibrotational spectrum. Supposing this species will be eventually observed with high enough sensitivity, its chemistry can be used to probe the amount of \ce{H-} in the ISM.\@
 
 \section{Chemistry}
 The reaction that allows this is 
@@ -39,12 +40,159 @@ since the heavier mass of deuterium decreases the vibrational zero point energy 
 
 In particular \todo{something about photo deionization and cold}. In particular, the environment of the ISM is very sparsely populated and cold, so \todo{idk lol}. In such conditions, given the experimentally determined reaction barrier of about \SI{330}{meV}\cite{zimmer_crossed-beam_1995}, the reaction can only proceed incredibly slowly via tunnelling. Estimates for an upper bound on the reaction rate by~\cite{endres_upper_2017} indicated the need for both high concentrations and long reaction times in able to obtain the necessary reaction rates.
 
-\section{Benchmarking Quantum Theory}
-Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it can be used as a valuable test of quantum theories and ab initio calculations. 
-\section{Multipole Trap}
+Para vs ortho, \SI{21}{cm} line as spin-flip leads to \( k_BT\sim \SI{1}{K} \)\cite{krumholz_notes_2016}
 
-\section{}
+\section{Benchmarking Quantum Theory}
+Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it can be used as a valuable test of quantum theories and ab initio calculations. As arguably the simplest possible reaction with the simplest possible reactants, the reaction~\ref{eq:h2d} is one of the simplest to treat theoretically. Numerous analyses are available using different computation schemes
+
+\section{Experiment}
+\subsection{Multipole Trap and Cooling}
+Form \ce{D-} in plasma discharge, then load into an an RF multipole trap. 
+
+Cooling has to be done by thermalization with the container walls via a buffer gas. This is because neither \ce{D-} nor \ce{H2} have accessible transitions for optical cooling. The buffer gas cooling is most effective at high multipole order because the RF heating of the ion by the alternating electric field is limited to a narrow, sharp region at the boundary, rather than a broad shallow field over the entire trap.
+
+
+Of course, at the beginning of cooling, there will be enough thermal energy to overcome the reaction barrier leading to a small initial \ce{H-} peak.
+
+Then pump with \ce{H2} to reaction concentration and allow to react at constant pressure for pseudo-first-order reaction.
+
+\subsection{Reaction, Detection and Measurement}
+The detector is usually some sort of secondary emission multiplier, where a charged particle collides with a substrate, ejects more charged particles, and those charged particles are accelerated into another substrate, leading to a cascade of charged particles that can be detected as a current.
+Chromatographically separate by time-of-flight, then integrate peaks on detector to determine number.
+\section{Results}
+Good agreement with predictions but only one data point, should better map out phase space
+
+\newpage{}
 \bibliographystyle{h-physrev.bst}
 %\bibliographystyle{hieeetr.bst}
 \bibliography{qual.bib}
+\newpage{}
+\appendix{}
+\section{Dipole Approximation}
+Recall that a charged particle in an electromagnetic field has the hamiltonian
+\begin{equation}
+    H = \frac{(\vb p- \frac{q}{c}\vb A)^2}{2m}+qV
+\end{equation}
+Fixing Coulomb gauge, \( \del*A=0 \), we can expand about a small perturbing vector potential,
+\begin{equation}
+    H=-\frac{\hbar^2\del^2}{2m}+qV + \frac{i\hbar q}{mc}\vb A*\del 
+\end{equation}
+with \( \del^2 V(\vb r) =-4\pi \rho(\vb r) \). Under the Coulomb gauge, solutions are given
+\begin{equation}
+    \vb A = A\hat{\bm \ve} e^{i(\vb k*\vb r-\omega t)}
+\end{equation}
+which are exactly planewave, or polarized beams of light. In particular, in terms of the spectral intensity
+\begin{equation}
+    I(\omega) = \frac{\omega^2}{2\pi c}\abs{A}^2
+\end{equation}
+we can simplify the expansion of Fermi's Golden Rule
+\begin{equation}
+    R = \frac{2\pi}{\hbar}\rho_f(E_f)\abs{\b f V_1 \k i}^2
+\end{equation}
+as
+\begin{equation}
+    R = \frac{4\pi^2 e^2}{m^2c\omega^2}I(\omega)\begin{cases}
+        \abs{\int\dm[3]r \p\ast_f e^{i\vb k*\vb r}\hat{\bm \ve}*\del \p_i}^2 & \omega=+\omega_{fi} \qquad\text{absorption}\\
+        \abs{\int\dm[3]r \p\ast_f e^{-i\vb k*\vb r}\hat{\bm \ve}*\del \p_i}^2 & \omega=-\omega_{fi} \qquad\text{emission}\\
+    \end{cases}
+\end{equation}
+
+Typically, we will have \( \lambda\gg R_\text{atom} \), and so we can approximate \( \vb k*\vb r\sim R_\text{atom}/\lambda\ll 1 \). The leading orders are the \emph{dipole} and \emph{quadrupole} operators
+\[ e^{\pm i\vb k*\vb r}\approx 1+i\vb k*\vb r+\mathscr O[(\vb k*\vb r)^2] \]
+Using
+\[ [\vb r, H_0]=\frac{i\hbar}{m}\vb p \]
+we can write
+\begin{equation}
+    \b{f}\hat{\bm\ve}*\del \k i = -\frac{m\omega_{fi}}{\hbar}\b{f}\hat{\bm \ve}*\vb r\k i
+\end{equation}
+to obtain selection rules.
+
+In particular, we consider this in two scenarios
+\subsection{Central Potentials}
+This scenario captures selection rules such as atomic transitions. We can rewrite 
+\begin{equation}
+    \hat{\bm \ve}*\vb r = \sqrt{\frac{4\pi}{3}}\left( \ve_x Y_{10} +\frac{-\ve_x + i\ve_y}{\sqrt{2}}Y_{11}+\frac{\ve_x +i\ve_y}{\sqrt{2}} Y_{1,-1} \right)  
+\end{equation}
+Naturally, we can use Clebsh-Gordon coefficients for the angular part of the transition
+\begin{equation}
+    \b{\ell' m'}\hat{\bm\ve}*\vb r \k{\ell m}\sim\int\dm\Omega Y\ast_{\ell'm'}Y_{1q}Y_{\ell m} = \sqrt{\frac{3}{4\pi}\frac{2\ell+1}{2\ell'+1}}C^{\ell'm'}_{\ell m 1 q} C^{\ell'0}_{\ell010}
+\end{equation}
+which forces the selection rules
+\begin{subequations}
+    \begin{multicols}{2}
+        \noindent \begin{equation}
+            \Delta\ell=\pm 1
+        \end{equation}
+        \begin{equation}
+            \Delta m = 0,\pm 1
+        \end{equation}
+    \end{multicols}
+\end{subequations}
+There are additional constraints from the radial part of the overlap
+\begin{equation}
+    \b{n'\ell'}\hat{\bm \ve}*\vb r\k{n\ell}\sim \int\dm r r^3R\ast_{n'\ell'}R_{n\ell}
+\end{equation}
+which, for example, enforce a parity change.
+
+Note, that a rigid rotor is a central potential in CoM coordinates.
+\subsection{Harmonic Oscillator}
+Substitute \( \vb r \) with the quantization axis as \( \vb r \sim (a\adj + a)\hat x \). Then, the selection rules become
+\begin{subequations}
+    \begin{multicols}{2}
+        \noindent \begin{equation}
+            \Delta n = \pm 1
+        \end{equation}
+        \begin{equation}
+            \hat{\bm\ve}\not\perp \hat x
+        \end{equation}
+    \end{multicols}
+\end{subequations}
+Anharmonicity adds terms \( \sim x^n \sim (a\adj +a)^n \) which lead to additional \emph{overtones}
+\subsection{Vibrotational}
+To second order in the quantum numbers \( \nu, \ell \), the harmonic oscillator gains an anharmonic correction
+\[ H_{AHO}=\hbar\omega_e \left(\nu+\frac{1}{2}\right)-\omega_e\chi_e\left( \nu+\frac{1}{2} \right)^2 \]
+the rigid rotor gains centrifugal distortion term
+\[ H_{NRR}=B_e\ell(\ell+1) +D_\nu[\ell(\ell+1)]^2\]
+and a vibrotational coupling is added
+\[ H_{RV}=-hc\alpha_e\left( \nu+\frac{1}{2} \right)[\ell(\ell+1)]\]
+This is of course much more difficult to treat analytically, but if we treat these as perturbations about \( H_{SHO} \) and \( H_{RR} \), we can inherit those selection rules.
+
+\subsection{FTIR vs Raman}
+FTIR probes the leading order dipole coupling, while Raman, as a virtual process involving two photons, probes quadrupole couplings.
+
+\section{Star formation}
+Star formation requires gravitational and external pressures to overcome internal energies and pressures. This can be stated\cite{krumholz_notes_2016}\footnote{derived from MHD} as the \emph{virial equation}
+\begin{align}
+    \ddot I =& \int_V\dm{V}\left( \frac{1}{2}\rho v^2 + \frac{3}{2}P \right)\nonumber \\
+             & +\int_{\partial V}r^i \Pi_{ij}\d{S^j}\nonumber\\
+             & + \frac{1}{8\pi}\int_V B^2\d{V} + \int_{\partial S}r^i T_{ij}\d{S^j}\\
+             & -\int_V\dm V \rho \vb r*\bm \del \f\nonumber\\
+             & - \frac{1}{2}\int_{\partial V}\rho r^2 \vb v*\d{\vb S}\nonumber
+\end{align}
+where the first line \( \mc T \) are the kinetic and thermal energy, the second line \( \mc T_S \)is the confining pressure \( \Pi_ij=\rho v_i v_j + P\delta_{ij} \) from ram and thermal pressure respectively, the third line \( \mc B \) is the difference between the internal magnetic pressure and the external magnetic pressure/tension from the Maxwell stress tensor \( T_{ij} \), the fourth line \( \mc W \) is the energy due to the gravitational potential \( \f \), and the final term is the rate of change of the momentum flux. If magnetic and surface effects are negligible and the system is in hydrostatic equilibrium, we obtain a virial ratio
+\begin{equation}
+    \alpha_\text{virial} = \frac{2T}{\abs W}
+\end{equation}
+where for \( \alpha_\text{virial}>1 \) implies \( \ddot I>0 \) and vice-versa. If there is only thermal pressure,
+\[ \mc T\approx \frac{3}{2}Mc_s^2 \qquad \mc W\approx -a\frac{GM^2}{R} \]
+this leads to the \emph{Jeans criterion}
+\begin{equation}
+    R\gtrsim \frac{c_S}{\sqrt{G\rho}}
+\end{equation}
+for a stable gas cloud. If this is violated, the cloud begins to collapse. More rigorous linearized perturbation of the hydrodynamics and self gravity determine a dispersion relationship
+\begin{equation}
+\omega^2 = c_s^2k^2 - 4\pi G\rho_0
+\end{equation}
+which at \( \omega=0 \) yields a critical point
+\begin{equation}
+    \lambda_J =\frac{2\pi}{k}=\sqrt{\frac{\pi c_s^2}{G\rho_0}}
+\end{equation}
+above which perturbations grow exponentially, and below which perturbations are stabilized. In particular, the dispersion relation gives a timescale of freefall, \( \tau\sim 1/\abs{i\omega} \). 
+\subsection{Early Stars}
+In order to reduce \( \mc T \) to allow star formation, the early gas clouds had to cool. However, these clouds were comprised mostly of \ce{^1_1H} and \ce{^4_2He}, whose atomic transitions occured at roughly \( \SI{10}{eV}\sim \SI{e5}{K} \); below this temperature, atomic lines are inefficient at cooling. The \( J=2 \) transition of molecular \ce{H2} has a characteristic temperature of about \SI{500}{K}, and can cool to about \SI{200}{K}. This phase is the \emph{loitering phase}, but as the region at \SI{200}{K} grows larger, the rate of three body recombination increases, allowing for the density to increase until an equilibrium between the heating from binding energy release competes with cooling from quadrupole line emission. Eventually, the density increases to the point where they are thick to the \ce{H2} lines, so heating dominates, and the star can begin collapsing/fusing.
+
+
+
+
+
 \end{document}
