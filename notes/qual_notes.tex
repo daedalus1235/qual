@@ -46,21 +46,38 @@ Para vs ortho, \SI{21}{cm} line as spin-flip leads to \( k_BT\sim \SI{1}{K} \)\c
 Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it can be used as a valuable test of quantum theories and ab initio calculations. As arguably the simplest possible reaction with the simplest possible reactants, the reaction~\ref{eq:h2d} is one of the simplest to treat theoretically. Numerous analyses are available using different computation schemes
 
 \section{Experiment}
+\subsection{Manipulating and Measuring Ions}
+\subsubsection{Electrostatics and Wiley-Maclauren spectrometer}
+Naturally, as charged particles, ions can be manipulated using electric fields produced by applying a voltage to an electrode. As a prototypical example, let us consider  the Wiley-Maclauren spectrometer. 
+The negative ions are accelerated by a Wiley-Maclauren spectrometer, and separated by time-of-flight. In essence, the Wiley-Maclauren spectrometer is a parallel plate capacitor that accelerates charged particles proportional to their charge to mass ratio. As they fly, undesireable \( q/m \) particles can be deflected electrostatically before they enter the trap. Chromatographically separate by time-of-flight, then 
+
+\subsubsection{MCP}
+Charged semiconductor with diagonal holes. Charged species crash into hole wall, eject ions, get accelerated, crash into wall again and so forth, multiplying single anions to appreciable currents. Integrate peaks on detector to determine number.
+
 \subsection{Multipole Trap and Cooling}
-Form \ce{D-} in plasma discharge, then load into an an RF multipole trap. 
+\ce{D-} is produced in a plasma discharge, and separated chromatographically using the Wiley-Maclauren spectrometer before loading into the MP trap.
 
-Cooling has to be done by thermalization with the container walls via a buffer gas. This is because neither \ce{D-} nor \ce{H2} have accessible transitions for optical cooling. The buffer gas cooling is most effective at high multipole order because the RF heating of the ion by the alternating electric field is limited to a narrow, sharp region at the boundary, rather than a broad shallow field over the entire trap.
+Trap is probably loaded axially then static field to trap. Ref. Mikochi because OP doesn't give apparatus.
+[explain multipole trap conceptually]
 
+Once loaded into the trap, cooling has to be done by thermalization with the container walls via a buffer gas. This is because neither \ce{D-} nor \ce{H2} have accessible transitions for optical cooling. The buffer gas cooling is most effective at high multipole order because the RF heating of the ion by the alternating electric field is limited to a narrow, sharp region at the boundary, rather than a broad shallow field over the entire trap. 
 
-Of course, at the beginning of cooling, there will be enough thermal energy to overcome the reaction barrier leading to a small initial \ce{H-} peak.
+A buffer gas of \ce{H2} is used. While hot \ce{D-} will react with the \ce{H2} buffer gas, enough is cooled down quickly enough where an appreciable amount can build up in the trap. To monitor the trap population, a small voltage is used to kick a small piece of the ion cloud out of the trap.
 
-Then pump with \ce{H2} to reaction concentration and allow to react at constant pressure for pseudo-first-order reaction.
+Of course, at the beginning of cooling, there will be enough thermal energy to overcome the reaction barrier leading to a small initial \ce{H-} peak. However, Once cooled though, the amount of buffer gas is quite low so continued reaction rates are negligible. A portion of the cloud can be extracted from the trap and sent into another ToF spectrometer, with a MCP detector. Integrated current gives population.
+
+Calibrated against typical loss rates. MP traps have to satisfy an adiabaticity condition, but collisions with buffer gas and other dynamical properties cause loss of all anionic species. This is measured and calibrated.
+
 
 \subsection{Reaction, Detection and Measurement}
+Then pump with \ce{H2} to reaction concentration and allow to react at constant pressure for pseudo-first-order reaction. Fixed time, pressure, then pump down to not overwhelm MCP.\@
+
 The detector is usually some sort of secondary emission multiplier, where a charged particle collides with a substrate, ejects more charged particles, and those charged particles are accelerated into another substrate, leading to a cascade of charged particles that can be detected as a current.
-Chromatographically separate by time-of-flight, then integrate peaks on detector to determine number.
+
 \section{Results}
 Good agreement with predictions but only one data point, should better map out phase space
+\newpage
+\section{Figures}
 
 \newpage{}
 \bibliographystyle{h-physrev.bst}
@@ -191,8 +208,45 @@ above which perturbations grow exponentially, and below which perturbations are 
 \subsection{Early Stars}
 In order to reduce \( \mc T \) to allow star formation, the early gas clouds had to cool. However, these clouds were comprised mostly of \ce{^1_1H} and \ce{^4_2He}, whose atomic transitions occured at roughly \( \SI{10}{eV}\sim \SI{e5}{K} \); below this temperature, atomic lines are inefficient at cooling. The \( J=2 \) transition of molecular \ce{H2} has a characteristic temperature of about \SI{500}{K}, and can cool to about \SI{200}{K}. This phase is the \emph{loitering phase}, but as the region at \SI{200}{K} grows larger, the rate of three body recombination increases, allowing for the density to increase until an equilibrium between the heating from binding energy release competes with cooling from quadrupole line emission. Eventually, the density increases to the point where they are thick to the \ce{H2} lines, so heating dominates, and the star can begin collapsing/fusing.
 
+\section{RF Traps}
+This section primarly follows~\cite{gerlich_inhomogeneous_1992}.
+Recall the Lorentz force,
+\begin{equation}
+    m\ddot{\vb r} = q\vb E+q\dot{\vb r}\times \vb B
+\end{equation}
+For cryogenic temperatures, i.e.\ slow atoms, the effect due to the magnetic field is going to be heavily suppressed by the magnitude of \( \dot{\vb r} \), so it is neglected. The electric field can be engineered such that it can be separated into an RF and a DC component.
+\begin{equation}
+    \vb E(\vb r, t) = \vb E_{RF}(\vb r)\cos\Omega t + q\vb E_{DC}(\vb r)
+\end{equation}
+For convenience, we fix \( \vb E_{DC}=0 \), although it will be used later to create an axial confinement. Additionally we treat inhomogeneities in the RF fields as perturbations to a homogeneous field, 
+\begin{equation}
+    \vb E_\text{RF}(\vb r)=\vb E_0+\vb E_I(\vb r) \qquad\qquad\vb E_I(0)=0
+\end{equation}
+In particular, a solution to the homogeneous field can be trivially found by integration
+\begin{equation}
+    \vb R_\text{RF}(t)=-\frac{q\vb E_0}{m\Omega^2}\cos\Omega t\equiv -\vb a\cos\Omega t
+\end{equation}
+Note that the amplitude of oscillations is suppressed by the frequency of the RF trap. By choosing a relatively high frequency, we can treat the oscillations due to the homogeneous field as a small perturbation superposed on top of the drift due to a weak or slowly varying inhomogeneous field,
+\begin{equation}
+    \vb r(t) = \vb R_d(t)+\vb R_\text{RF}(t)
+\end{equation}
+thus, we can expand the electric field the particle feels as a function of time
+\[ \vb E_\text{RF}(\vb r(t))\approx \vb E_{RF}(0)-(\vb a*\del)\vb E_\text{RF}(0)\cos\Omega t+\mathscr O(E_I^2) \]
+Since the drift velocity is small and the field inhomogeneities are small, we additionally have \( \dot {\vb a}\ll \Omega a \), \( \dot{\vb R_d}\ll \Omega\vb R_d\). After substituting, neglecting small terms, and appyling the identity
+\[ (\vb v*\del)\vb v = \frac{1}{2}\del v^2-\vb v\times(\del\times\vb v) \]
+the drift EoM becomes
+\begin{equation}
+    m\ddot {\vb R}_d=-\frac{q^2}{4m\Omega}\bm\del E_\text{RF}^2
+\end{equation}
 
+Naturally, as \( \vb F=-\bm\del U \), we can write an effective potential
+\[ U_\text{eff}=\frac{q^2}{4m\Omega}E_{RF}^2+q\F \]
 
+We obtain an interpretation that particles tend to drift towards regions with lower field amplitudes. A natural implementation of such a field configuration is the multipole trap
 
+\subsection{Multipole Configuration}
+Solving Laplace's equation, an ideal multipole configuration located at radius \( r_0 \) and having a profile \( \F_n(r_0,\vf)=\cos n\vf \), \( \F_n(0)=0 \), will have a potential
+\[ \F_n(r,\vf)=\F_0 \left(  \frac{r}{r_0}\right)^n\cos n\vf \]
+yielding an effective potential 
 
 \end{document}
