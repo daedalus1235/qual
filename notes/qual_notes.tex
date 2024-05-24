@@ -49,7 +49,7 @@ Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it ca
 \subsection{Manipulating and Measuring Ions}
 \subsubsection{Electrostatics and Wiley-Maclauren spectrometer}
 Naturally, as charged particles, ions can be manipulated using electric fields produced by applying a voltage to an electrode. As a prototypical example, let us consider  the Wiley-Maclauren spectrometer. 
-The negative ions are accelerated by a Wiley-Maclauren spectrometer, and separated by time-of-flight. In essence, the Wiley-Maclauren spectrometer is a parallel plate capacitor that accelerates charged particles proportional to their charge to mass ratio. As they fly, undesireable \( q/m \) particles can be deflected electrostatically before they enter the trap. Chromatographically separate by time-of-flight, then 
+The negative ions are accelerated by a Wiley-Maclauren spectrometer, and separated by time-of-flight. In essence, the Wiley-Maclauren spectrometer is a parallel plate capacitor that accelerates charged particles proportional to their charge to mass ratio. As they fly, undesireable \( q/m \) particles can be deflected electrostatically, e.g., via quadrupole deflector or simple plate deflectors, before they enter the trap. Chromatographically separate by time-of-flight.
 
 \subsubsection{MCP}
 Charged semiconductor with diagonal holes. Charged species crash into hole wall, eject ions, get accelerated, crash into wall again and so forth, multiplying single anions to appreciable currents. Integrate peaks on detector to determine number.
@@ -57,10 +57,9 @@ Charged semiconductor with diagonal holes. Charged species crash into hole wall,
 \subsection{Multipole Trap and Cooling}
 \ce{D-} is produced in a plasma discharge, and separated chromatographically using the Wiley-Maclauren spectrometer before loading into the MP trap.
 
-Trap is probably loaded axially then static field to trap. Ref. Mikochi because OP doesn't give apparatus.
-[explain multipole trap conceptually]
+Trap is probably loaded axially then static field to trap. Assuming that the the apparatus used is an upgraded version of the one used in~\cite{mikosch_evaporation_2008}.
 
-Once loaded into the trap, cooling has to be done by thermalization with the container walls via a buffer gas. This is because neither \ce{D-} nor \ce{H2} have accessible transitions for optical cooling. The buffer gas cooling is most effective at high multipole order because the RF heating of the ion by the alternating electric field is limited to a narrow, sharp region at the boundary, rather than a broad shallow field over the entire trap. 
+Once loaded into the trap, cooling has to be done by thermalization with the container walls via a buffer gas. This is because neither \ce{D-} nor \ce{H2} have accessible transitions for optical cooling. The buffer gas cooling is most effective at high multipole order because the RF heating of the ion by the alternating electric field is limited to a narrow, sharp region at the boundary, rather than a broad shallow field over the entire trap. The temperature is not measured directly, but inferred based on a combination of thermalization with the known copper housing.
 
 A buffer gas of \ce{H2} is used. While hot \ce{D-} will react with the \ce{H2} buffer gas, enough is cooled down quickly enough where an appreciable amount can build up in the trap. To monitor the trap population, a small voltage is used to kick a small piece of the ion cloud out of the trap.
 
@@ -72,7 +71,11 @@ Calibrated against typical loss rates. MP traps have to satisfy an adiabaticity 
 \subsection{Reaction, Detection and Measurement}
 Then pump with \ce{H2} to reaction concentration and allow to react at constant pressure for pseudo-first-order reaction. Fixed time, pressure, then pump down to not overwhelm MCP.\@
 
-The detector is usually some sort of secondary emission multiplier, where a charged particle collides with a substrate, ejects more charged particles, and those charged particles are accelerated into another substrate, leading to a cascade of charged particles that can be detected as a current.
+The detector is an MCP, a type of secondary emission multiplier, where a charged particle collides with a substrate, ejects more charged particles, and those charged particles are accelerated into another substrate, leading to a cascade of charged particles that can be detected as a current.
+
+Naturally, such a detection is highly sensitive to the number of gas molecules, as the high voltages used to accelerate ions in the MCP can easily ionize the molecular hydrogen and overwhelm the detector. Thus, before measurements, the chambre is pumped down to a low \ce{H2} pressure. Then, a small amount of the trapped ions is ``kicked'' from the multipole trap with a deflector electrode, accelerated by another WM spectrometer, and separated by ToF before measurement by the MCP.\@ The current can be integrated to compare the fraction of ions that are hydrogen to deuterium. 
+
+Then, from this fraction, 
 
 \section{Results}
 Good agreement with predictions but only one data point, should better map out phase space
