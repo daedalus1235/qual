@@ -75,7 +75,39 @@ The detector is an MCP, a type of secondary emission multiplier, where a charged
 
 Naturally, such a detection is highly sensitive to the number of gas molecules, as the high voltages used to accelerate ions in the MCP can easily ionize the molecular hydrogen and overwhelm the detector. Thus, before measurements, the chambre is pumped down to a low \ce{H2} pressure. Then, a small amount of the trapped ions is ``kicked'' from the multipole trap with a deflector electrode, accelerated by another WM spectrometer, and separated by ToF before measurement by the MCP.\@ The current can be integrated to compare the fraction of ions that are hydrogen to deuterium. 
 
-Then, from this fraction, 
+Then, from this fraction, loss rates can be determined. Assuming particles have a fixed probability of leaving the trap, the rate of change in particle number of each species can be written
+\begin{subequations}
+    \begin{align}
+        \der{H}{t}&=kD-x_HH\\
+        \der{H}{t}&=-(k+x_D)D
+    \end{align}
+\end{subequations}
+or
+\begin{equation}
+    \der{}{t}\ncr H D = \begin{pmatrix}
+        -x_H & k\\
+        0 & -(k+x_D)
+    \end{pmatrix}\ncr H D
+\end{equation}
+which has two eigenvectors,
+\[ \ncr{H}{D}=\ncr{1}{0},\ncr{-\frac{k}{k+x_D-x_H}}{1}=V,U \]
+with time evolutions
+\[ V=V_0e^{-k_ht} \]
+\[ U=U_0e^{-(k+x_D)t}\]
+Therfore, the initial condition of \( (H_0, D_0) \) gives \( U_0=D_0 \), \( V_0=\frac{k}{k+x_D-x_H}D_0+H_0 \), which evolves as
+\begin{subequations}
+    \begin{align}
+        \frac{H}{D_0}&=-\frac{k}{k+x_D-x_H}\left( e^{-(k+x_D)t}-e^{-x_Ht} \right) +\frac{H_0}{D_0}e^{-x_Ht}\\
+        \frac{D}{D_0}&=e^{
+    \end{align}
+\end{subequations}
+
+
+
+
+
+
+
 
 \section{Results}
 Good agreement with predictions but only one data point, should better map out phase space
