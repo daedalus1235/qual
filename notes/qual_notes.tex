@@ -2,11 +2,9 @@
 \usepackage{hw}
 
 \title{Rate of quantum tunnelling measured in a cold ion-molecule reaction}
-\author{Charles Yang}
-\date{\today}
 
 \begin{document}
-\maketitle
+\subsection*{Rate of quantum tunnelling measured in a cold ion-molecule reaction}
 \section{Astrophysical motivation}
 The hydride anion, \ce{H-}, is suspected to exist in the interstellar medium (ISM) and have played an important role in stellar formation. In particular, it likely is the original source of molecular hydrogen, before dust grains allowed surface chemistry, through the pathway\cite{peebles_origin_1968}
 \begin{subequations}
@@ -16,34 +14,28 @@ The hydride anion, \ce{H-}, is suspected to exist in the interstellar medium (IS
     \end{align}
 \end{subequations}
 This is because three-body collisions are heavily suppressed by low densities while vibrational/rotational transitions are dipole forbidden due to no transition/permanent dipole moment respectively\cite{krumholz_notes_2016}.
-Its presence can also help to explain the observation of the cyanide anion \ce{CN-} in the ISM.\@ Rate calculations for radiative electron attachment are too slow to explain the concentration observed in the ISM\cite{douguet_theory_2013}\todo{Check this is true}
-However, the pathway proposed in\todo{when I have vpn access} can help to explain the observation of cyanide:
+Its presence can also help to explain the observation of the cyanide anion \ce{CN-} in the ISM.\@ Rate calculations for radiative electron attachment are too slow to explain the concentration observed in the ISM\cite{douguet_theory_2013}.
+However, the pathway studied in~\cite{satta_quantum_2015} can help to explain the observation of cyanide:
 \begin{equation}
     \ce{H- + HCN -> H2 + CN-}
 \end{equation}
-since hydrogen cyanide is produced in stellar ejecta\cite{tielens_molecular_2013}.
+since hydrogen cyanide is produced in stellar ejecta\cite{tielens_molecular_2013} and \ce{H-} is produced by heterolytic cleavage of \ce{H2} by a cosmic ray\cite{satta_quantum_2015}.
 
-In general, it is very difficult to observe anionic species in the ISM, as UV radiation fields can very easily remove the extra electron. To this point, the hydride anion has only a single bound state at \SI{0.77}{eV}, and thus has no spectral lines which can be used as a convincing marker. Rather, the species \ce{H3-} could be used as a tracer\cite{ayouz_formation_2011} due to its IR vibrotational spectrum. Supposing this species will be eventually observed with high enough sensitivity, its chemistry can be used to probe the amount of \ce{H-} in the ISM.\@
+In general, it is very difficult to observe anionic species in the ISM, as UV radiation fields can very easily remove the extra electron. Even more challenging, the hydride anion has only a single bound state at \SI{0.77}{eV}, and thus has no spectral lines which can be used as a convincing marker. Rather, in cold, dense regions of the ISM with low a low ionization fraction, the species \ce{H3-} could be produced in meaningful quantities and used as a tracer\cite{ayouz_formation_2011} due to its IR vibrotational spectrum. Supposing this species will be eventually observed with high enough sensitivity, its chemistry can be used to probe the amount of \ce{H-} in the ISM.\@
 
 \section{Chemistry}
-The reaction that allows this is 
+The reaction that allows this is the formation of the complex
 \begin{equation}
-    \ce{H2 + H- <=> H3-} \label{eq:h3}
+    \ce{H2 + H- <=> H2\cdots H-} \label{eq:h3}
 \end{equation}
-\todo{Figure out why this isn't studied}, probably from\cite{wang_observations_2003}, that the low potential well means that the molecule can easily be broken apart.
 
-While \ce{H3-} has a binding energy of \SI{13}{meV}, which means it can in principle be isolated at \( \lesssim\SI{150}{K} \) it is easier instead to consider the analogue
+\ce{H3-} has a binding energy of about \SI{13}{meV}, which means it can in principle be isolated at \( \lesssim\SI{150}{K} \). However, the strong voltages used to manipulate the ions can very easily rip this complex apart. Rather, it is easier to experimentally benchmark the ab initio calculations using the isotopologue reaction
 \begin{equation}
-    \ce{H2 + D- ->} \left[\ce{H2D-} \right]^\ddagger \ce{-> HD + H- } \label{eq:h2d}
+    \ce{H2 + D- <=>} \left[\ce{H2\cdots D-} \right]^\ddagger \ce{-> HD + H- } \label{eq:h2d}
 \end{equation}
-since the heavier mass of deuterium decreases the vibrational zero point energy of the products on the RHS, driving the reaction forward through a release of energy. However, electrically, \ce{H-} and \ce{D-} are almost identical, and so we expect the attack on the LHS to be very similar to Eq.~\ref{eq:h3}. Furthermore, it is much easier to measure the rate of this reaction, since the end products don't back-react to recreate the starting material, and all anionic species can very easily be separated by their charge-to-mass ratio by either time of flight or cyclotron radius. Combined, these two features make the determination of the rate constant significantly easier.
+since the heavier mass of deuterium decreases the vibrational zero point energy of the products on the RHS by about \SI{25}{meV}, driving the reaction forward through a release of energy. Electrically, since \ce{H-} and \ce{D-} are almost identical, quantifying the PES of the isotopologous reaction should inform the validity of the \ce{H3-} calculations. Furthermore, it is much easier to measure the rate of this reaction, since the end products don't back-react to recreate the starting material, and all anionic species can very easily be separated by their charge-to-mass ratio by either time of flight or cyclotron radius. Combined, these two features make studying the tri-hydrogenic anion's chemical properties much easier.
 
-In particular \todo{something about photo deionization and cold}. In particular, the environment of the ISM is very sparsely populated and cold, so \todo{idk lol}. In such conditions, given the experimentally determined reaction barrier of about \SI{330}{meV}\cite{zimmer_crossed-beam_1995}, the reaction can only proceed incredibly slowly via tunnelling. Estimates for an upper bound on the reaction rate by~\cite{endres_upper_2017} indicated the need for both high concentrations and long reaction times in able to obtain the necessary reaction rates.
-
-Para vs ortho, \SI{21}{cm} line as spin-flip leads to \( k_BT\sim \SI{1}{K} \)\cite{krumholz_notes_2016}
-
-\section{Benchmarking Quantum Theory}
-Furthermore, as this reaction proceeds chiefly through quantum tunnelling, it can be used as a valuable test of quantum theories and ab initio calculations. As arguably the simplest possible reaction with the simplest possible reactants, the reaction~\ref{eq:h2d} is one of the simplest to treat theoretically. Numerous analyses are available using different computation schemes
+The reaction is done cryogenically. In such conditions, given the experimentally determined reaction barrier of about \SI{330}{meV}\cite{zimmer_crossed-beam_1995}, the reaction can only proceed incredibly slowly via tunnelling. Estimates for an upper bound on the reaction rate by~\cite{endres_upper_2017} indicated the need for both high concentrations and long reaction times in able to obtain the necessary reaction rates. Further, since the reaction can only proceed through quantum tunelling, it serves as an experimental test for theoretical cross-sections derived through quantum-mechanical scattering calculations.
 
 \section{Experiment}
 \subsection{Manipulating and Measuring Ions}
@@ -98,27 +90,22 @@ Therfore, the initial condition of \( (H_0, D_0) \) gives \( U_0=D_0 \), \( V_0=
 \begin{subequations}
     \begin{align}
         \frac{H}{D_0}&=-\frac{k}{k+x_D-x_H}\left( e^{-(k+x_D)t}-e^{-x_Ht} \right) +\frac{H_0}{D_0}e^{-x_Ht}\\
-        \frac{D}{D_0}&=e^{
+        \frac{D}{D_0}&=e^{-(k+x_D)t}
     \end{align}
 \end{subequations}
+These of course can be combined as
+\begin{equation}
+    \frac{H}{D}=\frac{k}{x_H-k-x_D}\left(1-e^{-(x_H-k-x_D)t}\right)+\frac{H_0}{D_0}e^{-(x_H-k-x_D)t}
+\end{equation}
+however, the authors did not do this analysis. Rather, they expanded out the growth and decay of each of the \ce{H-} and \ce{D-} peaks to second order in Taylor series, since each of these rates are \(\ll 1/t\), and fit the two peaks. This gives the pseudo-first-order reaction constant \(k\), which can be used to determine the reaction constant \(k_r=k/n_H\) by dividing out the roughly fixed hydrogen density.
 
+\section{Results and analysis}
+Due to radio-frequency heating, the distribution of reactants is not a Boltzmann distribution and thus has a different rate behaviour than reactants in thermal equilibrium. To model the non-equilibrium distribution of the ions, a Tsallis distribution is used
+\begin{equation}
+    f(v_i)\sim \left(1+(q-1)\frac{\frac{1}{2}mv_i^2}{k_BT}\right)^{\frac{1}{1-q}}
+\end{equation}
+In the limit of \(q\to 1\) this recovers the Boltzmann distribution, and at \(q>1\) a power-law tail is developed at the high end of the velocity distribution. The trajectories are numerically integrated with random collisions with a thermal buffer gas. These simulations show a nonlinear dependence in the \ce{[H2]} concentration, which were in fair agreement with experimental measurements, showing the impact of the RF heating at very high densities. Indeed, the effects of the RF heating are observed as a faster-than-linear growth of the rate with respect to density, as RF heating leads to a lower effective barrier height. Thus, to mitigate this non-thermal effect, a linear fit was done for the lowest reactant densities. \@ The rate they determined was \SI{5.2(16)e-20}{cm^3*s^{-1}}, which is the slowest reaction rate ever measured.
 
-
-
-
-
-
-
-\section{Results}
-Good agreement with predictions but only one data point, should better map out phase space
-\newpage
-\section{Figures}
-
-\newpage{}
-\bibliographystyle{h-physrev.bst}
-%\bibliographystyle{hieeetr.bst}
-\bibliography{qual.bib}
-\newpage{}
 \appendix{}
 \section{Dipole Approximation}
 Recall that a charged particle in an electromagnetic field has the hamiltonian
@@ -149,7 +136,7 @@ as
     \end{cases}
 \end{equation}
 
-Typically, we will have \( \lambda\gg R_\text{atom} \), and so we can approximate \( \vb k*\vb r\sim R_\text{atom}/\lambda\ll 1 \). The leading orders are the \emph{dipole} and \emph{quadrupole} operators
+Typically, we will have \( \lambda\sim\si{nm}\gg R_\text{atom}\sim\si{\angstrom} \), and so we can approximate \( \vb k*\vb r\sim R_\text{atom}/\lambda\ll 1 \). The leading orders are the \emph{dipole} and \emph{quadrupole} operators
 \[ e^{\pm i\vb k*\vb r}\approx 1+i\vb k*\vb r+\mathscr O[(\vb k*\vb r)^2] \]
 Using
 \[ [\vb r, H_0]=\frac{i\hbar}{m}\vb p \]
@@ -159,47 +146,47 @@ we can write
 \end{equation}
 to obtain selection rules.
 
-In particular, we consider this in two scenarios
-\subsection{Central Potentials}
-This scenario captures selection rules such as atomic transitions. We can rewrite 
-\begin{equation}
-    \hat{\bm \ve}*\vb r = \sqrt{\frac{4\pi}{3}}\left( \ve_x Y_{10} +\frac{-\ve_x + i\ve_y}{\sqrt{2}}Y_{11}+\frac{\ve_x +i\ve_y}{\sqrt{2}} Y_{1,-1} \right)  
-\end{equation}
-Naturally, we can use Clebsh-Gordon coefficients for the angular part of the transition
-\begin{equation}
-    \b{\ell' m'}\hat{\bm\ve}*\vb r \k{\ell m}\sim\int\dm\Omega Y\ast_{\ell'm'}Y_{1q}Y_{\ell m} = \sqrt{\frac{3}{4\pi}\frac{2\ell+1}{2\ell'+1}}C^{\ell'm'}_{\ell m 1 q} C^{\ell'0}_{\ell010}
-\end{equation}
-which forces the selection rules
-\begin{subequations}
-    \begin{multicols}{2}
-        \noindent \begin{equation}
-            \Delta\ell=\pm 1
-        \end{equation}
-        \begin{equation}
-            \Delta m = 0,\pm 1
-        \end{equation}
-    \end{multicols}
-\end{subequations}
-There are additional constraints from the radial part of the overlap
-\begin{equation}
-    \b{n'\ell'}\hat{\bm \ve}*\vb r\k{n\ell}\sim \int\dm r r^3R\ast_{n'\ell'}R_{n\ell}
-\end{equation}
-which, for example, enforce a parity change.
+%In particular, we consider this in two scenarios
+%\subsection{Central Potentials}
+%This scenario captures selection rules such as atomic transitions. We can rewrite 
+%\begin{equation}
+%    \hat{\bm \ve}*\vb r = \sqrt{\frac{4\pi}{3}}\left( \ve_x Y_{10} +\frac{-\ve_x + i\ve_y}{\sqrt{2}}Y_{11}+\frac{\ve_x +i\ve_y}{\sqrt{2}} Y_{1,-1} \right)  
+%\end{equation}
+%Naturally, we can use Clebsh-Gordon coefficients for the angular part of the transition
+%\begin{equation}
+%    \b{\ell' m'}\hat{\bm\ve}*\vb r \k{\ell m}\sim\int\dm\Omega Y\ast_{\ell'm'}Y_{1q}Y_{\ell m} = \sqrt{\frac{3}{4\pi}\frac{2\ell+1}{2\ell'+1}}C^{\ell'm'}_{\ell m 1 q} C^{\ell'0}_{\ell010}
+%\end{equation}
+%which forces the selection rules
+%\begin{subequations}
+%    \begin{multicols}{2}
+%        \noindent \begin{equation}
+%            \Delta\ell=\pm 1
+%        \end{equation}
+%        \begin{equation}
+%            \Delta m = 0,\pm 1
+%        \end{equation}
+%    \end{multicols}
+%\end{subequations}
+%There are additional constraints from the radial part of the overlap
+%\begin{equation}
+%    \b{n'\ell'}\hat{\bm \ve}*\vb r\k{n\ell}\sim \int\dm r r^3R\ast_{n'\ell'}R_{n\ell}
+%\end{equation}
+%which, for example, enforce a parity change.
 
-Note, that a rigid rotor is a central potential in CoM coordinates.
-\subsection{Harmonic Oscillator}
-Substitute \( \vb r \) with the quantization axis as \( \vb r \sim (a\adj + a)\hat x \). Then, the selection rules become
-\begin{subequations}
-    \begin{multicols}{2}
-        \noindent \begin{equation}
-            \Delta n = \pm 1
-        \end{equation}
-        \begin{equation}
-            \hat{\bm\ve}\not\perp \hat x
-        \end{equation}
-    \end{multicols}
-\end{subequations}
-Anharmonicity adds terms \( \sim x^n \sim (a\adj +a)^n \) which lead to additional \emph{overtones}
+%Note, that a rigid rotor is a central potential in CoM coordinates.
+%\subsection{Harmonic Oscillator}
+%Substitute \( \vb r \) with the quantization axis as \( \vb r \sim (a\adj + a)\hat x \). Then, the selection rules become
+%\begin{subequations}
+%    \begin{multicols}{2}
+%        \noindent \begin{equation}
+%            \Delta n = \pm 1
+%        \end{equation}
+%        \begin{equation}
+%            \hat{\bm\ve}\not\perp \hat x
+%        \end{equation}
+%    \end{multicols}
+%\end{subequations}
+%Anharmonicity adds terms \( \sim x^n \sim (a\adj +a)^n \) which lead to additional \emph{overtones}
 \subsection{Vibrotational}
 To second order in the quantum numbers \( \nu, \ell \), the harmonic oscillator gains an anharmonic correction
 \[ H_{AHO}=\hbar\omega_e \left(\nu+\frac{1}{2}\right)-\omega_e\chi_e\left( \nu+\frac{1}{2} \right)^2 \]
@@ -209,28 +196,33 @@ and a vibrotational coupling is added
 \[ H_{RV}=-hc\alpha_e\left( \nu+\frac{1}{2} \right)[\ell(\ell+1)]\]
 This is of course much more difficult to treat analytically, but if we treat these as perturbations about \( H_{SHO} \) and \( H_{RR} \), we can inherit those selection rules.
 
-\subsection{FTIR vs Raman}
-FTIR probes the leading order dipole coupling, while Raman, as a virtual process involving two photons, probes quadrupole couplings.
+%\subsection{FTIR vs Raman}
+%FTIR probes the leading order dipole coupling, while Raman, as a virtual process involving two photons, probes quadrupole couplings.
+
+\section{Hydrogen Chemistry and Spectroscopy}
+Ab initio calculations determine that \ce{H3-} has nine bound states, five in the \(A_2'\) irrep and four in the \(A_1'\) irrep. These should have transitions ranging from 1--\SI{10}{meV}, 0.1--\SI{1}{mm}, or 0.3--\SI{3}{THz}. The ground state is bound by about \SI{13}{meV}.
+
+Redshift of \(\sim 1000\) for dark ages, density of \ce{H*} is \(\sim\)0.1--\SI{e2}{cm^{-3}} and of \ce{H2} is \SI{e2}{}--\SI{e6}{cm^{-3}} depending on region.
+Ioniation rate constant \(\zeta\approx\SI{3e-17}{s^{-1}}\) is the rate at which cosmic rays ionize diffuse molecular clouds \SI{e2}{cm^{-3}}.\@ \ce{H2+} is rapidly stabilized into \ce{H3+} with rate constant \SI{2e-9}{cm^3*s^{-1}}. Each collision causes a fractional loss of \(\sim \frac{m_e}{m_{\ce{H2}}}\) before the electron thermalizes to \(\sim\SI{100}{K}\) after \(\sim6200\) collisions. However, above \SI{3.7}{eV}, the electron has a chance to disassociatively attach via \ce{e- + H2 -> H* + H-}. This occurs with a cross-section of about \(\sigma_{DA}\sim \SI{3e-21}{cm^2}\) at \SI{4}{eV}, while elastic collision occurs with a cross-section of about \(\sigma_\text{el}\sim\SI{1.7e-15}{cm^2}\). Assuming \(\mathscr O(1000)\) collisions occur before DA, the fraction of electrons that form \ce{H-} is \(f_\text{DA}=\sigma_\text{DA}/(\sigma_\text{el}/1000)\sim \SI{1.8e-3}{}\). Modelling loss by neutralization \(\sim k_0 n_+ n[\ce{H-}]\) we arrive at a steady state, etc. 
+From~\cite{ayouz_formation_2011}, an approximate formula can be written\todo{learn this}
+\begin{equation}
+    n(\ce{H3-})=\frac{k_\text{RA}\zeta f_\text{DA}}{(k_\pm)^2}\left(\frac{n(\ce{H2})}{n_+}\right)^2
+\end{equation}
 
 \section{Star formation}
 Star formation requires gravitational and external pressures to overcome internal energies and pressures. This can be stated\cite{krumholz_notes_2016}\footnote{derived from MHD} as the \emph{virial equation}
 \begin{align}
-    \ddot I =& \int_V\dm{V}\left( \frac{1}{2}\rho v^2 + \frac{3}{2}P \right)\nonumber \\
-             & +\int_{\partial V}r^i \Pi_{ij}\d{S^j}\nonumber\\
-             & + \frac{1}{8\pi}\int_V B^2\d{V} + \int_{\partial S}r^i T_{ij}\d{S^j}\\
-             & -\int_V\dm V \rho \vb r*\bm \del \f\nonumber\\
-             & - \frac{1}{2}\int_{\partial V}\rho r^2 \vb v*\d{\vb S}\nonumber
+    \ddot I =& \int_V\dm{V}\left( \frac{1}{2}\rho v^2 + \frac{3}{2}P \right)+\int_{\partial V}r^i \Pi_{ij}\d{S^j} + \frac{1}{8\pi}\int_V B^2\d{V}\nonumber \\
+             &+ \int_{\partial V}r^i T_{ij}\d{S^j}-\int_V\dm V \rho \vb r*\bm \del \f- \frac{1}{2}\int_{\partial V}\rho r^2 \vb v*\d{\vb S}
 \end{align}
 where the first line \( \mc T \) are the kinetic and thermal energy, the second line \( \mc T_S \)is the confining pressure \( \Pi_ij=\rho v_i v_j + P\delta_{ij} \) from ram and thermal pressure respectively, the third line \( \mc B \) is the difference between the internal magnetic pressure and the external magnetic pressure/tension from the Maxwell stress tensor \( T_{ij} \), the fourth line \( \mc W \) is the energy due to the gravitational potential \( \f \), and the final term is the rate of change of the momentum flux. If magnetic and surface effects are negligible and the system is in hydrostatic equilibrium, we obtain a virial ratio
 \begin{equation}
     \alpha_\text{virial} = \frac{2T}{\abs W}
 \end{equation}
 where for \( \alpha_\text{virial}>1 \) implies \( \ddot I>0 \) and vice-versa. If there is only thermal pressure,
-\[ \mc T\approx \frac{3}{2}Mc_s^2 \qquad \mc W\approx -a\frac{GM^2}{R} \]
 this leads to the \emph{Jeans criterion}
-\begin{equation}
-    R\gtrsim \frac{c_S}{\sqrt{G\rho}}
-\end{equation}
+\[ \mc T\approx \frac{3}{2}Mc_s^2 \qquad \mc W\approx -a\frac{GM^2}{R} \qquad\then\qquad R\gtrsim \frac{c_S}{\sqrt{G\rho}}\]
+    
 for a stable gas cloud. If this is violated, the cloud begins to collapse. More rigorous linearized perturbation of the hydrodynamics and self gravity determine a dispersion relationship
 \begin{equation}
 \omega^2 = c_s^2k^2 - 4\pi G\rho_0
@@ -284,4 +276,6 @@ Solving Laplace's equation, an ideal multipole configuration located at radius \
 \[ \F_n(r,\vf)=\F_0 \left(  \frac{r}{r_0}\right)^n\cos n\vf \]
 yielding an effective potential 
 
+\bibliographystyle{h-physrev.bst}
+\bibliography{qual.bib}
 \end{document}
